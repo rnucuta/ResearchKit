@@ -1,0 +1,62 @@
+<!-- Just an experiment page to hopefully combine everything... Doesn't work yet, still under dev -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>		
+        <title>Wikipedia Summary</title>
+        <meta charset="UTF-8" />					
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style> 
+    body {
+      background-color:white;
+      color: black;
+      font-family: Goudy Old Style;
+    }
+    .results-page {
+      text-align:center;
+    }
+    button {
+    border-color: blue;
+    height: 3vmax;
+    width: 4vmax;
+    font-size: 1.1vmax;
+    }
+    .content {
+      width:70%;
+      margin:0 auto;
+    }
+    h1 {
+      font-size:3vmax;
+    }
+    p {
+      font-size:1.5vmax;
+    }
+  </style>
+    </head>
+    <body>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+        
+function getUrlVars() {
+        var vars = {};
+        var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+            vars[key] = value;
+        });
+        return vars;
+    };
+    var query = getUrlVars()["q"];
+    var wikiUrl = "https://en.wikipedia.org/wiki/"+query;
+    const smmry = require('smmry')({ SM_API_KEY: '85A8C7C99C', 
+                                     SM_WITH_BREAK: true 
+                                  });
+    smmry.summarizeUrl(wikiUrl)
+        .then(data => {
+        console.log(data);
+        })
+        .catch(err => {
+        console.error(err);
+    });
+    </script>
+    </body>
+</html>
