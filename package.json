@@ -1,0 +1,16 @@
+{
+  "name": "researchkit",
+  "version": "1.0.0",
+  "description": "Research quickly on the go!",
+  "main": "eventPage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1",
+    "requirejs": "^2.3.6"
+  }
+}

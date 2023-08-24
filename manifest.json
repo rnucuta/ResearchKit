@@ -1,22 +1,19 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "ResearchKit",
-	"version": "1.2",
-	"description": "Research quickly on the go!",
+	"version": "2.2",
+	"description": "Research quickly on the go with the help of AI!",
 	"icons": {
 		"128": "icon128.png",
 		"48": "icon48.png",
 		"16": "icon16.png"
 	},
 	"background": {
-		"scripts": ["eventPage.js"],
-		"persistent": true
+		"service_worker": "eventPage.js"
 	},
-	"browser_action": {
-    	"default_icon": "icon48.png"
-  	},
 	"permissions": [
-		"tabs",
 		"contextMenus"
-	]
+	],
+	"host_permissions": ["https://3hi4qz2p1m.execute-api.us-east-2.amazonaws.com/*", "https://api.openai.com/*"]
+
 }
